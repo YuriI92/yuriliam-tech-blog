@@ -21,7 +21,15 @@ router.post('/', (req, res) => {
         username: req.body.username,
         password: req.body.password
     })
-        .then(user => res.json(user))
+        .then(user => {
+            req.session.save(() => {
+                req.session.user_id = user.id;
+                req.session.username = user.username;
+                req.session.loggedIn = true;
+
+                res.json({ user: user, message: 'Signed up successfully'});
+            });
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -50,12 +58,30 @@ router.post('/login', (req, res) => {
                 return;
             }
 
-            res.json(user);
+            req.session.save(() => {
+                req.session.user_id = user.id;
+                req.session.username = user.username;
+                req.session.loggedIn = true;
+
+                res.json({ user: user, message: 'Logged in successfully'});
+            });
         })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
+});
+
+// destroy session and let user logout
+router.post('/logout', (req, res) => {
+    // if there is loggedIn property in the session, destroy it
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
 });
 
 module.exports = router;
