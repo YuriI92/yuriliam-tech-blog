@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// url: /api/users
+// requesting /api/users
 
 // get all users
 router.get('/', (req, res) => {
