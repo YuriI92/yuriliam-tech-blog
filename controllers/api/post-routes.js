@@ -5,20 +5,7 @@ const { User, Post } = require('../../models');
 
 // get all posts
 router.get('/', (req, res) => {
-    Post.findAll({
-        attributes: ['id', 'title', 'contents', 'user_id', 'created_at'],
-        include: [
-            {
-                model: User,
-                attributes: ['username']
-            }
-        ]
-    })
-        .then(posts => res.json(posts))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    
 });
 
 // get single post
