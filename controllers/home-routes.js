@@ -15,7 +15,10 @@ router.get('/', (req, res) => {
             // get plain js object
             const posts = postData.map((post) => post.get({ plain: true }))
             console.log(posts);
-            res.render('home', { posts });
+            res.render('home', {
+                posts,
+                loggedIn: req.session.loggedIn
+            });
         })
         .catch(err => {
             console.log(err);
