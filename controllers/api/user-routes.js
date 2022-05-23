@@ -37,13 +37,14 @@ router.post('/', (req, res) => {
 });
 
 // find user and let user login if password matches
-router.post('/login', (req, res) => {
-    User.findOne({
+router.post('/login', async (req, res) => {
+    await User.findOne({
         where: {
             username: req.body.username
         }
     })
-        .then(user => {
+        .then(async user => {
+            console.log(user);
             // if the user not found, respond with 404
             if (!user) {
                 res.status(404).json({ message: 'No user found with this username' });
@@ -51,7 +52,8 @@ router.post('/login', (req, res) => {
             }
 
             // check password
-            const validPassword = user.checkPassword(req.body.password);
+            const validPassword = await user.checkPassword(req.body.password);
+            console.log(validPassword);
             // if the password is not valid, respond with 404
             if (!validPassword) {
                 res.status(404).json({ message: 'Password is incorrect.' });
