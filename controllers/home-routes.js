@@ -44,4 +44,37 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+router.get('/post/:id', (req, res) => {
+    Post.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: ['id', 'title', 'contents', 'user_id', 'created_at'],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
+        .then(postData => {
+            if (!postData) {
+                res.status(404).json({ message: 'No post found with this id' });
+                return;
+            }
+
+            const post = postData.get({ plain: true });
+            console.log(post);
+
+            res.render('single-post', {
+                post,
+                loggedIn: req.session.loggedIn
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 module.exports = router;

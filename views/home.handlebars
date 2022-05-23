@@ -1,13 +1,5 @@
 <section>
     {{#each posts as |post|}}
-    <article>
-        <a href="/api/posts/{{id}}">
-            <div>
-                <h2>{{title}}</h2>
-                <p>Posted by {{user.username}} on {{created_at}}</p>
-            </div>
-        </a>
-        <p>{{contents}}</p>
-    </article>
+    {{> post-details post}}
     {{/each}}
 </section>
