@@ -3,6 +3,11 @@ const { User, Post } = require('../../models');
 
 // requesting /api/posts
 
+// get all posts
+router.get('/', (req, res) => {
+    
+});
+
 // get single post
 router.get('/:id', (req, res) => {
     Post.findOne({
