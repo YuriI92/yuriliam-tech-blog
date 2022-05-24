@@ -18,7 +18,11 @@
         {{/if}}
     </nav>
     <header>
+        {{#if dashboard}}
+        <h1>Your Dashboard</h1>
+        {{else}}
         <h1>Yurilium Tech Blog</h1>
+        {{/if}}
     </header>
 
     {{{ body }}}
