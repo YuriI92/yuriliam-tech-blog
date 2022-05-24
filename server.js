@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const exphbs = require('express-handlebars');
+const path = require('path');
 
 // import other files
 const sequelize = require('./config/connection');
@@ -15,6 +16,7 @@ const hbs = exphbs.create({});
 // express middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // set up session and store it in sequelize db
 app.use(session({
