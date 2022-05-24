@@ -34,7 +34,10 @@ router.get('/', (req, res) => {
 // create comment
 router.post('/', (req, res) => {
     Comment.create(req.body)
-        .then(comment => res.json(comment))
+        .then(comment => {
+            console.log(comment);
+            res.json(comment)
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);

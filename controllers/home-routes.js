@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post } = require('../models');
+const { User, Post, Comment } = require('../models');
 
 router.get('/', (req, res) => {
     Post.findAll({
@@ -54,6 +54,16 @@ router.get('/post/:id', (req, res) => {
             {
                 model: User,
                 attributes: ['username']
+            },
+            {
+                model: Comment,
+                attributes: ['comment', 'created_at'],
+                include: [
+                    {
+                        model: User,
+                        attributes: ['username']
+                    }
+                ]
             }
         ]
     })
@@ -68,7 +78,8 @@ router.get('/post/:id', (req, res) => {
 
             res.render('single-post', {
                 post,
-                loggedIn: req.session.loggedIn
+                loggedIn: req.session.loggedIn,
+                session_userId: req.session.user_id
             });
         })
         .catch(err => {
