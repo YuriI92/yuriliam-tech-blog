@@ -12,9 +12,9 @@
         <a href="/">Home</a>
         <a href="/dashboard">Dashboard</a>
         {{#if loggedIn}}
-        <a href="/login">Login</a>
+        <button id="logout-btn">Logout</button>
         {{else}}
-        <a href="/logout">Logout</a>
+        <a href="/login">Login</a>
         {{/if}}
     </nav>
     <header>
@@ -26,5 +26,9 @@
     <footer>
         <h2>Thank you for your visit⚜️</h2>
     </footer>
+
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
 </body>
 </html>
