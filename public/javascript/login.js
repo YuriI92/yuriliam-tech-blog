@@ -11,7 +11,7 @@ async function loginFormHandler(e) {
 
     if (username && password) {
         if (url === 'signup') {
-            response = await fetch('/api/signup', {
+            response = await fetch('/api/users', {
                 method: 'POST',
                 body: JSON.stringify({
                     username,
@@ -20,7 +20,7 @@ async function loginFormHandler(e) {
                 headers: { 'Content-Type': 'application/json' }
             });
         } else if (url === 'login') {
-            response = await fetch('/api/login', {
+            response = await fetch('/api/users/login', {
                 method: 'POST',
                 body: JSON.stringify({
                     username,
