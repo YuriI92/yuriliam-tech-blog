@@ -1,12 +1,18 @@
 <section>
     {{> post-details post}}
 </section>
-{{#if loggedIn}}
 <section>
+    <h3>Comments</h3>
+    {{#each post.Comments as |comments|}}
+    <p>{{comment}}<br/>—{{user.username}}, {{created_at}}</p>
+    {{/each}}
+    {{#if loggedIn}}
     <form class="comment-form">
         <label for="comment-text">Comment</label>
-        <input type="text" id="comment-text" name="comment-text" />
+        <input type="text" id="comment-text" name="comment-text" data-user="{{session_userId}}" />
         <button type="submit" id="add-comment">Submit</button>
     </form>
+    {{/if}}
 </section>
-{{/if}}
+
+<script src="/javascript/add-comment.js"></script>
