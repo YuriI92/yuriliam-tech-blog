@@ -66,7 +66,6 @@ router.put('/:id', (req, res) => {
         }
     })
         .then(post => {
-            console.log(req);
             if (!post) {
                 res.status(404).json({ message: 'No post found with this id' });
                 return;

@@ -44,7 +44,7 @@ router.get('/edit/:id', (req, res) => {
             }
             
             const post = postData.get({ plain: true });
-            console.log(post);
+            
             res.render('edit-post', {
                 post,
                 dashboard: true,
