@@ -1,0 +1,12 @@
+<section>
+    <h2>Create New Post</h2>
+    <form class="add-post-form">
+        <label for="new-title">Title</label>
+        <input type="text" id="new-title" name="new-title" />
+        <label for="new-content">Content</label> 
+        <input type="text" id="new-content" name="new-content" />
+        <button type="submit" id="add-post" data-user="{{session_userId}}">Create</button>
+    </form>
+</section>
+
+<script src="/javascript/add-post.js"></script>

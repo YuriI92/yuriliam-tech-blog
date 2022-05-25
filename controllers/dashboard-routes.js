@@ -3,6 +3,9 @@ const { User, Post } = require('../models');
 
 router.get('/', (req, res) => {
     Post.findAll({
+        where: {
+            user_id: req.session.user_id
+        },
         attributes: ['id', 'title', 'created_at']
     })
         .then(postData => {
@@ -17,6 +20,14 @@ router.get('/', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
+});
+
+router.get('/new', (req, res) => {
+    res.render('new-post', {
+        dashboard: true,
+        loggedIn: req.session.loggedIn,
+        session_userId: req.session.user_id
+    });
 });
 
 module.exports = router;
