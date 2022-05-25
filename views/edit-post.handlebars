@@ -1,0 +1,13 @@
+<section>
+    <h2>Edit Post</h2>
+    <form class="edit-post-form" data-post="{{post.id}}">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" value="{{post.title}}" />
+        <label for="content">Content</label> 
+        <input type="text" id="content" name="new-content" value="{{post.contents}}" />
+        <button type="submit" id="edit-post">Update Post</button>
+        <button type="button" id="delete-post">Delete</button>
+    </form>
+</section>
+
+<script src="/javascript/add-post.js"></script>

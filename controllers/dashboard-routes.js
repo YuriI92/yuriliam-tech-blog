@@ -30,4 +30,31 @@ router.get('/new', (req, res) => {
     });
 });
 
+router.get('/edit/:id', (req, res) => {
+    Post.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: ['id', 'title', 'contents']
+    })
+        .then(postData => {
+            if (!postData) {
+                res.status(404).json({ message: 'No post found with this id' });
+                return;
+            }
+            
+            const post = postData.get({ plain: true });
+            console.log(post);
+            res.render('edit-post', {
+                post,
+                dashboard: true,
+                loggedIn: req.session.loggedIn
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 module.exports = router;
