@@ -1,11 +1,13 @@
-<section>
+<section class="px-4 py-2">
     {{> post-details post}}
 </section>
-<section>
-    <h3>Comments</h3>
-    {{#each post.Comments as |comments|}}
-    <p>{{comment}}<br/>—{{user.username}}, {{format_date created_at}}</p>
-    {{/each}}
+<section class="px-4">
+    <div class="border border-dark">
+        <h3 class="bg-dark px-3 py-2 text-info">Comments</h3>
+        {{#each post.Comments as |comments|}}
+        <p class="px-3 py-2 text-dark">{{comment}}<br/>—{{user.username}}, {{format_date created_at}}</p>
+        {{/each}}
+    </div>
     {{#if loggedIn}}
     <form class="comment-form">
         <label for="comment-text">Comment</label>
