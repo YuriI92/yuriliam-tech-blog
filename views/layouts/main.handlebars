@@ -15,7 +15,7 @@
             <a href="/" class="p-1 mx-3 text-info">Home</a>
             {{#if loggedIn}}
             <a href="/dashboard" class="p-1 mx-3 text-info">Dashboard</a>
-            <button id="logout-btn text-info">Logout</button>
+            <button id="logout-btn" class="border-0 text-info bg-transparent">Logout</button>
             {{else}}
             <a href="/login" class="p-1 mx-3 text-info">Dashboard</a>
             <a href="/login" class="p-1 mx-3 text-info">Login</a>
@@ -23,7 +23,7 @@
         </nav>
         <div class="container row text-center">
             {{#if dashboard}}
-            <h1 class="bg-info px-1 py-1 ml-4 col-4">Your Dashboard</h1>
+            <h1 class="bg-info px-1 py-1 ml-4 col-4 rounded shadow">Your Dashboard</h1>
             {{else}}
             <h1 class="bg-info px-1 py-1 ml-4 col-4 rounded shadow">Yurilium Tech Blog</h1>
             {{/if}}

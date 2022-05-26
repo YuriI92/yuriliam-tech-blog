@@ -1,9 +1,13 @@
 <section>
-    {{#each posts as |post|}}
-    <div>
-        <a href="/dashboard/edit/{{id}}">{{title}}</a>  
-        <p>{{format_date created_at}}</p>
+    <div class="px-4 py-2">
+        {{#each posts as |post|}}
+        <article class="my-post-btn d-flex justify-content-between px-3 my-2">
+            <a href="/dashboard/edit/{{id}}" class="text-light">{{title}}</a>  
+            <p class="text-light">{{format_date created_at}}</p>
+        </article>
+        {{/each}}
     </div>
-    {{/each}}
+    <div class="d-flex justify-content-center new-post-btn">
+        <a href="/dashboard/new" class="px-3 py-2">+ New Post</a>
+    </div>
 </section>
-<a href="/dashboard/new">+ New Post</a>
