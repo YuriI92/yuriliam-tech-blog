@@ -4,7 +4,7 @@
 <section>
     <h3>Comments</h3>
     {{#each post.Comments as |comments|}}
-    <p>{{comment}}<br/>—{{user.username}}, {{created_at}}</p>
+    <p>{{comment}}<br/>—{{user.username}}, {{format_date created_at}}</p>
     {{/each}}
     {{#if loggedIn}}
     <form class="comment-form">

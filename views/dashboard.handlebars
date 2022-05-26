@@ -2,7 +2,7 @@
     {{#each posts as |post|}}
     <div>
         <a href="/dashboard/edit/{{id}}">{{title}}</a>  
-        <p>{{created_at}}</p>
+        <p>{{format_date created_at}}</p>
     </div>
     {{/each}}
 </section>
