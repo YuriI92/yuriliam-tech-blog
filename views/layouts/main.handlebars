@@ -10,7 +10,7 @@
 </head>
 <body>
     
-    <div class="p-2 bg-dark">
+    <header class="p-2 bg-dark">
         <nav class="p-2">
             <a href="/" class="p-1 mx-3 text-info">Home</a>
             {{#if loggedIn}}
@@ -21,18 +21,20 @@
             <a href="/login" class="p-1 mx-3 text-info">Login</a>
             {{/if}}
         </nav>
-        <header class="container row text-center">
+        <div class="container row text-center">
             {{#if dashboard}}
             <h1 class="bg-info px-1 py-1 ml-4 col-4">Your Dashboard</h1>
             {{else}}
             <h1 class="bg-info px-1 py-1 ml-4 col-4 rounded shadow">Yurilium Tech Blog</h1>
             {{/if}}
-        </header>
-    </div>
+        </div>
+    </header>
 
-    {{{ body }}}
+    <main>
+        {{{ body }}}
+    </main>
 
-    <footer class="bg-dark">
+    <footer class="bg-dark text-info text-center p-2 fixed-bottom">
         <h2>Thank you for your visit⚜️</h2>
     </footer>
 

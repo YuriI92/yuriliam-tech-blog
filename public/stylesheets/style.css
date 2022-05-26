@@ -9,4 +9,16 @@ h1 {
 
 nav > a:hover {
     text-decoration: none;
-} 
+}
+
+body {
+    background: #C6EBE9;
+}
+
+h2 {
+    font-size: 1.2vw;
+}
+
+.post-date {
+    font-size: 12px;
+}
