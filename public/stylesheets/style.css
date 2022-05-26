@@ -61,3 +61,7 @@ button:hover,
     border: 1px solid #72807f;
     color: #e1efef;    
 }
+
+.comment-form {
+    border-top: #292b2c 1px dashed;
+}
