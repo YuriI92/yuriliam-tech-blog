@@ -1,19 +1,19 @@
-async function deletePost(e) {
-    e.preventDefault();
+// async function deletePost(e) {
+//     e.preventDefault();
 
-    const post_id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
+//     const post_id = window.location.toString().split('/')[
+//         window.location.toString().split('/').length - 1
+//     ];
 
-    const response = await fetch(`/api/posts/${post_id}`, {
-        method: 'DELETE'
-    });
+//     const response = await fetch(`/api/posts/${post_id}`, {
+//         method: 'DELETE'
+//     });
 
-    if (response.ok) {
-        window.location.replace('/dashboard');
-    } else {
-        alert(response.statusText);
-    }
-}
+//     if (response.ok) {
+//         window.location.replace('/dashboard');
+//     } else {
+//         alert(response.statusText);
+//     }
+// }
 
-document.querySelector('.edit-post-form').addEventListener('click', deletePost);
+// document.querySelector('.edit-post-form').addEventListener('click', deletePost);

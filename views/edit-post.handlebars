@@ -1,7 +1,7 @@
 <section class="px-4 py-2">
     <div class="border border-dark">
         <h2 class="bg-dark px-3 py-2 text-info">Edit Post</h2>
-        <form class="edit-post-form  px-3 py-1 d-flex flex-column text-dark">
+        <form class="edit-post-form  px-3 py-1 d-flex flex-column text-dark" data-post="{{post.id}}">
             <div class="my-1 d-flex flex-column">
                 <label for="title">Title</label>
                 <input type="text" id="title" name="title" value="{{post.title}}" />
@@ -17,4 +17,4 @@
 </section>
 
 <script src="/javascript/edit-post.js"></script>
-<script src="/javascript/delete-post.js"></script>
+{{!-- <script src="/javascript/delete-post.js"></script> --}}
