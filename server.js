@@ -23,7 +23,9 @@ app.use(session({
     secret: 'oKuk3voRXh$mH19',
     resave: false,
     saveUninitialized: true,
-    cookie: {},
+    cookie: {
+        expires: 5 * 60 * 1000
+    },
     store: new SequelizeStore({
         db: sequelize,
     })

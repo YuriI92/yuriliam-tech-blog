@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { User, Post } = require('../models');
+const { auth, sessTimeout } = require('../utils/authentication');
 
-router.get('/', (req, res) => {
+router.get('/', auth, sessTimeout, (req, res) => {
     Post.findAll({
         where: {
             user_id: req.session.user_id
@@ -22,7 +23,7 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/new', (req, res) => {
+router.get('/new', auth, sessTimeout, (req, res) => {
     res.render('new-post', {
         dashboard: true,
         loggedIn: req.session.loggedIn,
@@ -30,7 +31,7 @@ router.get('/new', (req, res) => {
     });
 });
 
-router.get('/edit/:id', (req, res) => {
+router.get('/edit/:id', auth, sessTimeout, (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id

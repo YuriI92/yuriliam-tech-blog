@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
+const { sessTimeout } = require('../utils/authentication');
 
-router.get('/', (req, res) => {
+router.get('/', sessTimeout, (req, res) => {
     Post.findAll({
         attributes: ['id', 'title', 'contents', 'user_id', 'created_at'],
         include: [
@@ -13,8 +14,7 @@ router.get('/', (req, res) => {
     })
         .then(postData => {
             // get plain js object
-            const posts = postData.map((post) => post.get({ plain: true }))
-            console.log(posts);
+            const posts = postData.map((post) => post.get({ plain: true }));
             res.render('home', {
                 posts,
                 loggedIn: req.session.loggedIn
@@ -44,7 +44,7 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-router.get('/post/:id', (req, res) => {
+router.get('/post/:id', sessTimeout, (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id
