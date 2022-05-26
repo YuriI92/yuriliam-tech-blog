@@ -4,6 +4,7 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const exphbs = require('express-handlebars');
 const path = require('path');
+const helpers = require('./utils/helpers');
 
 // import other files
 const sequelize = require('./config/connection');
@@ -11,7 +12,7 @@ const routes = require('./controllers');
 
 const app = express();
 const PORT = process.env.PORT || 3002;
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 
 // express middleware
 app.use(express.json());
