@@ -26,3 +26,17 @@ h2 {
 h3 {
     font-size: 1.1vw;
 }
+
+button {
+    padding: 3px;
+    font-size: 1vw;
+    background: #919d9c;
+    border: 1px solid #72807f;
+    border-radius: 5px;
+    color: #e1efef;
+}
+
+button:hover {
+    background: #292b2c;
+    color: #C6EBE9;
+}
