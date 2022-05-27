@@ -3,7 +3,7 @@ async function addPost(e) {
 
     const title = document.querySelector('#new-title').value.trim();
     const contents = document.querySelector('#new-content').value.trim();
-    const user_id = document.querySelector('#add-post').getAttribute('data-user');
+    const user_id = this.getAttribute('data-user');
 
     console.log(title, contents, user_id);
     let response;

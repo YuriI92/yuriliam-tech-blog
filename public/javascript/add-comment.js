@@ -2,7 +2,7 @@ async function commentFormHandler(e) {
     e.preventDefault();
 
     const comment = document.querySelector('#comment-text').value.trim();
-    const user_id = document.querySelector('#comment-text').getAttribute('data-user');
+    const user_id = this.getAttribute('data-user');
     const post_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
