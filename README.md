@@ -4,7 +4,7 @@
 
 ## Description
 This is a tech blog site for the developers to post and read technology related articles, and post comments to them!<br/>
-Go to [Yurillium Tech Blog](https://dashboard.heroku.com/apps/peaceful-fortress-78304) now!
+Go to [Yurillium Tech Blog](https://quiet-headland-91755.herokuapp.com/) now!
 
 ## Table of Contents
 - [Installation](#installation)
