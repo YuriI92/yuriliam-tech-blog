@@ -1,9 +1,10 @@
 
-# Yurilium Tech Blog
+# Yurillium Tech Blog
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
-blog platform for the developers to post technology related articles
+This is a tech blog site for the developers to post and read technology related articles, and post comments to them!<br/>
+Go to [Yurillium Tech Blog](https://dashboard.heroku.com/apps/peaceful-fortress-78304) now!
 
 ## Table of Contents
 - [Installation](#installation)
