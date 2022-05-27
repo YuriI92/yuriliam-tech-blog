@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Post } = require('../models');
 const { auth, sessTimeout } = require('../utils/authentication');
 
+// get the user's posts and render info to dashboard handlebars
 router.get('/', auth, sessTimeout, (req, res) => {
     Post.findAll({
         where: {
@@ -23,6 +24,7 @@ router.get('/', auth, sessTimeout, (req, res) => {
         });
 });
 
+// when add post is clicked, render info to new-post handlebars
 router.get('/new', auth, sessTimeout, (req, res) => {
     res.render('new-post', {
         dashboard: true,
@@ -31,6 +33,7 @@ router.get('/new', auth, sessTimeout, (req, res) => {
     });
 });
 
+// when the post title in dashboard is clicked, render info to edit-post handlebar
 router.get('/edit/:id', auth, sessTimeout, (req, res) => {
     Post.findOne({
         where: {

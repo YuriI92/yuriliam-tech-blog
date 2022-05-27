@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const { sessTimeout } = require('../utils/authentication');
 
+// get all the posts and render info to home handlebars
 router.get('/', sessTimeout, (req, res) => {
     Post.findAll({
         attributes: ['id', 'title', 'contents', 'user_id', 'created_at'],
@@ -26,7 +27,9 @@ router.get('/', sessTimeout, (req, res) => {
         });
 });
 
+// when login is clicked, go to login page
 router.get('/login', (req, res) => {
+    // if already logged in redirect to the home
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
@@ -35,15 +38,12 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+// when instead signup is clicked, go to signup
 router.get('/signup', (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/');
-        return;
-    }
-
     res.render('signup');
 });
 
+// when a post is clicked, render info to single-post handlebars
 router.get('/post/:id', sessTimeout, (req, res) => {
     Post.findOne({
         where: {
