@@ -1,0 +1,11 @@
+<section class="px-4 py-2">
+    <div class="border border-dark">
+        <h2 class="bg-dark px-3 py-2 text-info">Create New Post</h2>
+        <form class="add-post-form px-3 py-1 d-flex flex-column text-dark" data-user="{{session_userId}}">
+            {{>post-form}}
+            <button type="submit" id="add-post" class="my-2">Create</button>
+        </form>
+    </div>
+</section>
+
+<script src="/javascript/add-post.js"></script>

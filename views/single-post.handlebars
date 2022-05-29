@@ -1,0 +1,22 @@
+<section class="px-4 py-2">
+    {{> post-details post}}
+</section>
+<section class="px-4">
+    <div class="border border-dark">
+        <h3 class="bg-dark px-3 py-2 text-info">Comments</h3>
+        {{#each post.Comments as |comments|}}
+        <p class="px-3 py-2 text-dark">{{comment}}<br/>—{{user.username}}, {{format_date created_at}}</p>
+        {{/each}}
+        {{#if loggedIn}}
+        <form class="comment-form px-3 py-1 d-flex flex-column text-dark" data-user="{{session_userId}}" >
+            <div class="my-1 d-flex flex-column">
+                <label for="comment-text">Comment</label>
+                <input type="text" id="comment-text" name="comment-text" />
+            </div>
+            <button type="submit" id="add-comment" class="my-2">Submit</button>
+        </form>
+        {{/if}}
+    </div>
+</section>
+
+<script src="/javascript/add-comment.js"></script>

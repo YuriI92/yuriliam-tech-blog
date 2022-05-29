@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 1.8vw;
+}
+
+nav > a:hover {
+    text-decoration: none;
+}
+
+body {
+    background: #C6EBE9;
+}
+
+h2 {
+    font-size: 1.2vw;
+}
+
+.post-date {
+    font-size: 12px;
+}
+
+h3 {
+    font-size: 1.1vw;
+}
+
+button,
+.my-post-btn {
+    padding: 3px;
+    font-size: 1vw;
+    background: #919d9c;
+    border: 1px solid #72807f;
+    border-radius: 5px;
+    color: #e1efef;
+}
+
+button:hover,
+.my-post-btn:hover {
+    background: #292b2c;
+    color: #C6EBE9;
+}
+
+.new-post-btn {
+    margin-top: 50px;
+}
+
+.new-post-btn > a {
+    font-weight: bold;
+    font-size: 1vw;
+    background: #292b2c;
+    color: #C6EBE9;
+    border-radius: 5px;
+}
+
+.new-post-btn > a:hover {
+    text-decoration: none;
+    background: #919d9c;
+    border: 1px solid #72807f;
+    color: #e1efef;    
+}
+
+.comment-form {
+    border-top: #292b2c 1px dashed;
+}
